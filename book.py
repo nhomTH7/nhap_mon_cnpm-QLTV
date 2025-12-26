@@ -12,3 +12,9 @@ def add_book():
         "quantity": quantity
     })
     print("✔ Thêm sách thành công")
+def show_books():
+    if not books:
+        print("Chưa có sách")
+        return
+    for b in books:
+        print(b)    
