@@ -72,3 +72,22 @@ def show_borrow_list():
             f"Hạn trả: {r['due_date'].strftime('%d/%m/%Y')} | "
             f"Trạng thái: {status}"
         )
+def borrow_menu():
+    while True:
+        print("\n--- QUẢN LÍ MƯỢN – TRẢ ---")
+        print("1. Mượn sách")
+        print("2. Trả sách")
+        print("3. Danh sách mượn")
+        print("0. Quay lại")
+
+        choice = input("Chọn: ")
+        if choice == "1":
+            borrow_book()
+        elif choice == "2":
+            return_book()
+        elif choice == "3":
+            show_borrow_list()
+        elif choice == "0":
+            break
+        else:
+            print("❌ Lựa chọn không hợp lệ")
