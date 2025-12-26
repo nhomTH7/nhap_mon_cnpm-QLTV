@@ -18,3 +18,8 @@ def show_books():
         return
     for b in books:
         print(b)    
+def search_book():
+    key = input("Nhập tên sách cần tìm: ")
+    for b in books:
+        if key.lower() in b["title"].lower():
+            print(b)
