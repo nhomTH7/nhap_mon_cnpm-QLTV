@@ -31,3 +31,23 @@ def delete_book():
             print("✔ Đã xóa sách")
             return
     print("❌ Không tìm thấy sách")            
+def book_menu():
+    while True:
+        print("\n--- QUẢN LÍ SÁCH ---")
+        print("1. Thêm sách")
+        print("2. Xem danh sách")
+        print("3. Tìm sách")
+        print("4. Xóa sách")
+        print("0. Quay lại")
+
+        choice = input("Chọn: ")
+        if choice == "1":
+            add_book()
+        elif choice == "2":
+            show_books()
+        elif choice == "3":
+            search_book()
+        elif choice == "4":
+            delete_book()
+        elif choice == "0":
+            break    
