@@ -43,3 +43,20 @@ def search_reader():
             found = True
     if not found:
         print(" Không tìm thấy kết quả")
+# 5. Xem lịch sử mượn – trả
+def view_borrow_history():
+    student_id = input("Nhập mã thẻ sinh viên: ")
+    found = False
+
+    for r in borrow_records:
+        if r["student_id"] == student_id:
+            found = True
+            print(
+                f"Sách: {r['book_id']} | "
+                f"Mượn: {r['borrow_date'].strftime('%d/%m/%Y')} | "
+                f"Hạn trả: {r['due_date'].strftime('%d/%m/%Y')} | "
+                f"Trạng thái: {r['status']}"
+            )
+
+    if not found:
+        print("❌ Không có lịch sử mượn – trả")
