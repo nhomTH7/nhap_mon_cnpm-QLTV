@@ -23,3 +23,11 @@ def search_book():
     for b in books:
         if key.lower() in b["title"].lower():
             print(b)
+def delete_book():
+    book_id = input("Nhập mã sách cần xóa: ")
+    for b in books:
+        if b["id"] == book_id:
+            books.remove(b)
+            print("✔ Đã xóa sách")
+            return
+    print("❌ Không tìm thấy sách")            
