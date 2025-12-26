@@ -24,4 +24,12 @@ def update_reader():
             print("✔ Cập nhật thông tin thành công")
             return
     print(" Không tìm thấy bạn đọc")
-
+# 3. Xóa bạn đọc
+def delete_reader():
+    student_id = input("Nhập mã thẻ sinh viên cần xóa: ")
+    for r in readers:
+        if r["student_id"] == student_id:
+            readers.remove(r)
+            print("✔ Đã xóa bạn đọc")
+            return
+    print("Không tìm thấy bạn đọc")
