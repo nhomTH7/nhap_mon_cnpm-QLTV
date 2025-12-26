@@ -33,3 +33,13 @@ def delete_reader():
             print("✔ Đã xóa bạn đọc")
             return
     print("Không tìm thấy bạn đọc")
+# 4. Tìm kiếm bạn đọc
+def search_reader():
+    keyword = input("Nhập tên hoặc MSSV cần tìm: ").lower()
+    found = False
+    for r in readers:
+        if keyword in r["student_id"].lower() or keyword in r["name"].lower():
+            print(f"MSSV: {r['student_id']} | Tên: {r['name']}")
+            found = True
+    if not found:
+        print(" Không tìm thấy kết quả")
