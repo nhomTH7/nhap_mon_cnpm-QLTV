@@ -77,3 +77,41 @@ def warning_violation():
 
     if not violated:
         print("✔ Không có bạn đọc vi phạm")
+# MENU QUẢN LÍ BẠN ĐỌC
+def reader_menu():
+    while True:
+        print("\n--- QUẢN LÍ BẠN ĐỌC ---")
+        print("1. Thêm bạn đọc")
+        print("2. Sửa thông tin bạn đọc")
+        print("3. Xóa bạn đọc")
+        print("4. Tìm kiếm bạn đọc")
+        print("5. Xem lịch sử mượn – trả")
+        print("6. Cảnh báo bạn đọc vi phạm")
+        print("0. Quay lại")
+
+        choice = input("Chọn: ")
+
+        if choice == "1":
+            add_reader()
+        elif choice == "2":
+            update_reader()
+        elif choice == "3":
+            delete_reader()
+        elif choice == "4":
+            search_reader()
+        elif choice == "5":
+            view_borrow_history()
+        elif choice == "6":
+            warning_violation()
+        elif choice == "0":
+            break
+        else:
+            print("❌ Lựa chọn không hợp lệ")
+
+
+
+
+
+
+
+
