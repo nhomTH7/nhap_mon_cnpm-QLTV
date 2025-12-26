@@ -15,4 +15,13 @@ def add_reader():
         "name": name
     })
     print("✔ Thêm bạn đọc thành công")
+# 2. Sửa thông tin bạn đọc
+def update_reader():
+    student_id = input("Nhập mã thẻ sinh viên cần sửa: ")
+    for r in readers:
+        if r["student_id"] == student_id:
+            r["name"] = input("Nhập tên mới: ")
+            print("✔ Cập nhật thông tin thành công")
+            return
+    print(" Không tìm thấy bạn đọc")
 
