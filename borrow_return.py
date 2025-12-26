@@ -54,3 +54,21 @@ def return_book():
             return
 
     print("❌ Không tìm thấy thông tin mượn")
+
+def show_borrow_list():
+    if not borrow_records:
+        print("Chưa có lượt mượn")
+        return
+
+    today = datetime.now()
+    for r in borrow_records:
+        status = r["status"]
+        if status == "Đang mượn" and today > r["due_date"]:
+            status += " (QUÁ HẠN)"
+
+        print(
+            f"MSSV: {r['student_id']} | "
+            f"Sách: {r['book_id']} | "
+            f"Hạn trả: {r['due_date'].strftime('%d/%m/%Y')} | "
+            f"Trạng thái: {status}"
+        )
