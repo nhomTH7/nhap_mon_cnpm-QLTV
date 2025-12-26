@@ -29,3 +29,28 @@ def borrow_book():
             return
 
     print("❌ Không mượn được sách")
+    
+def return_book():
+    student_id = input("Nhập mã thẻ sinh viên: ")
+    book_id = input("Nhập mã sách trả: ")
+
+    for record in borrow_records:
+        if (record["student_id"] == student_id and
+            record["book_id"] == book_id and
+            record["status"] == "Đang mượn"):
+
+            record["status"] = "Đã trả"
+            return_date = datetime.now()
+
+            if return_date > record["due_date"]:
+                late_days = (return_date - record["due_date"]).days
+                print(f"⚠ QUÁ HẠN {late_days} ngày")
+
+            for book in books:
+                if book["id"] == book_id:
+                    book["quantity"] += 1
+
+            print("✔ Trả sách thành công")
+            return
+
+    print("❌ Không tìm thấy thông tin mượn")
