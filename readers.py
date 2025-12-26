@@ -60,3 +60,20 @@ def view_borrow_history():
 
     if not found:
         print("❌ Không có lịch sử mượn – trả")
+# 6. Cảnh báo bạn đọc vi phạm (quá hạn)
+def warning_violation():
+    today = datetime.now()
+    violated = False
+
+    for r in borrow_records:
+        if r["status"] == "Đang mượn" and today > r["due_date"]:
+            violated = True
+            late_days = (today - r["due_date"]).days
+            print(
+                f"⚠ MSSV: {r['student_id']} | "
+                f"Sách: {r['book_id']} | "
+                f"Quá hạn: {late_days} ngày"
+            )
+
+    if not violated:
+        print("✔ Không có bạn đọc vi phạm")
